@@ -1,0 +1,60 @@
+
+<style>
+	fieldset {margin: 15px 0; padding: 0; border: 0;}
+	input, select {outline: 0;}
+
+	input[type="text"] {width: 200px; height: 38px; border: 0; border-bottom: 1px solid #ccc;}
+	select {width: 200px; height: 38px; border: 0; border-bottom: 1px solid #ccc; appearance: none; -webkit-appearance: none;}
+	
+	.checkbox-c, .radio-c {position: relative;}
+	.checkbox-c label {margin: 0 0 0 5px;}
+	.radio-c label {margin: 0 10px 0 5px;}
+	.checkbox-c label:before, .radio-c label:before {
+	      content: ''; position: absolute; width: 15px; height: 15px; top: 0; left:0; background-color: #fff;
+	      border: 1.5px solid #B3BBBF; border-radius: 4px; cursor: pointer; transition: all .3s;
+	}
+	.radio-c label:before {border-radius: 50%;}
+	.checkbox-c label:after, .radio-c label:after {
+		content: ''; position: absolute;width: 8px; height: 4px; background: transparent;top: 5px; left: 3px;
+		border: 2px solid #fff; border-top: none;border-right: none; opacity: 0; transform: rotate(-45deg); transition: all .3s;
+	}
+
+	.checkbox-c input[type="checkbox"]:checked + label:before,
+	.radio-c input[type="radio"]:checked + label:before
+		{background-color: green; border-color: green;}
+	.checkbox-c input[type="checkbox"]:checked + label:after,
+	.radio-c input[type="radio"]:checked + label:after 
+		{opacity: 1;}
+
+
+</style>
+
+<fieldset>
+	<label for="field1">field1 : </label>
+	<input type="text" id="field1" name="field1" placeholder="field1">
+</fieldset>
+
+<fieldset>
+	<label for="select1">select1 : </label>
+	<select name="select1" id="select1">
+		<option value="-1">choose</option>
+		<option value="1">select1</option>
+		<option value="2">select2</option>
+	</select>
+</fieldset>
+
+<fieldset class="checkbox-c">
+	<input type="checkbox" id="check1" name="check1">
+	<label for="check1">check1</label>
+</fieldset>
+
+<fieldset>
+	<span class="radio-c">
+		<input type="radio" id="yes" name="yes_no">
+		<label for="yes">yes</label>
+	</span>
+	<span class="radio-c">
+		<input type="radio" id="no" name="yes_no">
+		<label for="no">no</label>
+	</span>
+</fieldset>
