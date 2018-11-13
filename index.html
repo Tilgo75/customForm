@@ -1,21 +1,52 @@
 
 <style>
-	fieldset {margin: 15px 0; padding: 0; border: 0;}
-	input, select {outline: 0;}
+	
+	/* general */
+	html, body, ul, fieldset, input {margin: 0; padding: 0;}
+	html {font-size: 62.5%; box-sizing: border-box;}
+	body {font-size: 1.4rem; line-height: 1.2; margin: 2rem;}
+	*, *:before, *:after {box-sizing: inherit;}
+	input, select, [tabindex] {outline: 0;}
+	fieldset, button {border: 0; outline: 0;}
+	button {font-family: inherit;}
+	table {border-collapse: collapse; border-spacing: 0;}
 
-	input[type="text"] {width: 200px; height: 38px; border: 0; border-bottom: 1px solid #ccc;}
-	select {width: 200px; height: 38px; border: 0; border-bottom: 1px solid #ccc; appearance: none; -webkit-appearance: none;}
+	form {max-width: 35rem; margin: 0 auto; padding: 1.5rem; border: 1px solid #ccc;}
+	fieldset {margin: 1.5rem 0;}
+	label {min-width: 7rem; display: inline-block;}
+	select, input[type="text"], input[type="email"], input[type="tel"] {width: 22rem; height: 3.8rem; border: 0; border-bottom: 1px solid #ccc; padding-left: .5rem;}
+	select {appearance: none; -webkit-appearance: none;}
+	
+	.fl {float: left;}
+	.fr {float: right;}
+	.clear {clear: both;}
+
+	[class*="triangle-"]:after {content: ''; display: inline-block; vertical-align: middle; margin: 0 0 0 1rem;width: 0;height: 0; border-style: solid; border-width: .6rem 0 .6rem .6rem; border-color: transparent transparent transparent #000;transition: all .2s ease-in-out;}
+	.triangle-top:after {-webkit-transform: rotate(-90deg); transform: rotate(-90deg);}
+	.triangle-bottom:after {-webkit-transform: rotate(90deg); transform: rotate(90deg);}
+	.triangle-left:after {-webkit-transform: rotate(180deg); transform: rotate(180deg);}
+
+	.btn {display: inline-block; padding: .5rem 1rem;text-decoration: none;line-height: 1.2;cursor: pointer;transition: all .2s ease-in-out;}
+	.btn {background-color: #000; color: #fff;border: 1px solid transparent;}
+	.btn:hover {background-color: #fff; color: #000;border: 1px solid #000;}
+
+	.btn1 {background-color: #000; color: #fff;border: 1px solid transparent;}
+	.btn1:hover {background-color: #fff; color: #000;border: 1px solid #000;}
+	
+	fieldset[class*="triangle-"]:after {margin-left: -2rem;}
 	
 	.checkbox-c, .radio-c {position: relative;}
-	.checkbox-c label {margin: 0 0 0 5px;}
-	.radio-c label {margin: 0 10px 0 5px;}
+	.checkbox-c input[type="checkbox"], .radio-c input[type="radio"] {margin: .2rem .5rem;}
+	.checkbox-c label, .radio-c label {min-width: auto; margin: 0 1rem 0 .3rem;}
+	.checkbox-c label.multiple {width: calc(100% - 3.5rem); display: inline-block; vertical-align: top; margin: 0 0 0 .5rem; text-align: justify;}
 	.checkbox-c label:before, .radio-c label:before {
-	      content: ''; position: absolute; width: 15px; height: 15px; top: 0; left:0; background-color: #fff;
-	      border: 1.5px solid #B3BBBF; border-radius: 4px; cursor: pointer; transition: all .3s;
+	      content: ''; position: absolute; width: 2rem; height: 2rem; top: 0; left:0; background-color: #fff;
+	      border: 1.5px solid #B3BBBF; cursor: pointer; transition: all .3s;
 	}
+	.checkbox-c label:before {border-radius: 5px;}
 	.radio-c label:before {border-radius: 50%;}
 	.checkbox-c label:after, .radio-c label:after {
-		content: ''; position: absolute;width: 8px; height: 4px; background: transparent;top: 5px; left: 3px;
+		content: ''; position: absolute; width: .8rem; height: .4rem; background: transparent;top: .8rem; left: .6rem;
 		border: 2px solid #fff; border-top: none;border-right: none; opacity: 0; transform: rotate(-45deg); transition: all .3s;
 	}
 
@@ -26,35 +57,60 @@
 	.radio-c input[type="radio"]:checked + label:after 
 		{opacity: 1;}
 
-
 </style>
 
-<fieldset>
-	<label for="field1">field1 : </label>
-	<input type="text" id="field1" name="field1" placeholder="field1">
-</fieldset>
+<form>
 
-<fieldset>
-	<label for="select1">select1 : </label>
-	<select name="select1" id="select1">
-		<option value="-1">choose</option>
-		<option value="1">select1</option>
-		<option value="2">select2</option>
-	</select>
-</fieldset>
+	<fieldset>
+		<label for="">Civilité : </label>
+		<span class="radio-c">
+			<input type="radio" id="monsieur" name="monsieur" required>
+			<label for="monsieur">Monsieur</label>
+		</span>
+		<span class="radio-c">
+			<input type="radio" id="madame" name="madame" required>
+			<label for="madame">Madame</label>
+		</span>
+	</fieldset>
 
-<fieldset class="checkbox-c">
-	<input type="checkbox" id="check1" name="check1">
-	<label for="check1">check1</label>
-</fieldset>
+	<fieldset class="triangle-bottom">
+		<label for="select1">Select1 : </label>
+		<select id="select1" name="select1" required>
+			<option value="">Choose</option>
+			<option value="1">Select1</option>
+			<option value="2">Select2</option>
+		</select>
+	</fieldset>
 
-<fieldset>
-	<span class="radio-c">
-		<input type="radio" id="yes" name="yes_no">
-		<label for="yes">yes</label>
-	</span>
-	<span class="radio-c">
-		<input type="radio" id="no" name="yes_no">
-		<label for="no">no</label>
-	</span>
-</fieldset>
+	<fieldset>
+		<label for="lastname">Nom : </label>
+		<input type="text" id="lastname" name="lastname" placeholder="Nom" required>
+	</fieldset>
+
+	<fieldset>
+		<label for="firstname">Prénom : </label>
+		<input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+	</fieldset>
+
+	<fieldset>
+		<label for="email">Email : </label>
+		<input type="email" id="email" name="email" placeholder="Email" required>
+	</fieldset>
+
+	<fieldset>
+		<label for="phone">Téléphone : </label>
+		<input type="tel" id="phone" name="phone" placeholder="Téléphone" required>
+	</fieldset>
+
+	<fieldset class="checkbox-c">
+		<input type="checkbox" id="accept" name="accept" required>
+		<label class="multiple" for="accept">
+			En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans le cadre de ma demande.
+		</label>
+	</fieldset>
+
+	<fieldset class="fr">
+		<input class="btn btn1" type="submit" id="form_submit" name="form_submit" value="Valider">
+	</fieldset>
+	<div class="clear"></div>
+</form>
