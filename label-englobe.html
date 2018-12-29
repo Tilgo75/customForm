@@ -1,0 +1,50 @@
+<style>
+	/* general */
+	html, body, ul, fieldset, input {margin: 0; padding: 0;}
+	html {font-size: 62.5%; box-sizing: border-box;}
+	body {font-size: 1.4rem; line-height: 1.2; margin: 2rem;}
+	*, *:before, *:after {box-sizing: inherit;}
+	input, select, [tabindex] {outline: 0;}
+	fieldset, button {border: 0; outline: 0;}
+	button {font-family: inherit;}
+	table {border-collapse: collapse; border-spacing: 0;}
+	
+	fieldset {margin: 2rem 0;}
+	
+	/* label englobe */
+	label {margin: 0 2rem 0 0;}
+	label input {display: none;}
+	label > span {display: inline-block; vertical-align: middle;}
+	label input + span {position: relative; width: 2rem; height: 2rem; margin-right: .3rem; transition: all .3s; border: 1px solid #000; border-radius: 3px;}
+	label input[type="radio"] + span {border-radius: 50%;}
+	label input + span:before {transition: all .3s;}
+	label input:checked + span {background-color: #000;}
+	label input:checked + span:before {content: ''; position: absolute; width: .8rem; height: .4rem; background: transparent; top: .7rem; left: .5rem;
+		border: 2px solid #fff; border-top: 0;border-right: 0;transform: rotate(-45deg);}
+	
+	
+</style>
+
+<form>
+	<h1>Label englobe</h1>
+	<fieldset>
+		<h2>Civilité : </h2>
+		<label for="monsieur">
+			<input type="radio" id="monsieur" name="civilite" value="monsieur" required>
+			<span></span>
+			<span>Monsieur</span>
+		</label>
+		<label for="madame">
+			<input type="radio" id="madame" name="civilite" value="madame" required>
+			<span></span>
+			<span>Madame</span>
+		</label>
+	</fieldset>
+	<fieldset>
+		<label for="check1">
+			<input type="checkbox" id="check1" name="check1" value="on" required>
+			<span></span>
+			<span>My checkbox lorem ipsum</span>
+		</label>
+	</fieldset>
+</form>

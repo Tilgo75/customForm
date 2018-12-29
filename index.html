@@ -47,7 +47,7 @@
 	.radio-c label:before {border-radius: 50%;}
 	.checkbox-c label:after, .radio-c label:after {
 		content: ''; position: absolute; width: .8rem; height: .4rem; background: transparent;top: .8rem; left: .6rem;
-		border: 2px solid #fff; border-top: none;border-right: none; opacity: 0; transform: rotate(-45deg); transition: all .3s;
+		border: 2px solid #fff; border-top: 0;border-right: 0; opacity: 0; transform: rotate(-45deg); transition: all .3s;
 	}
 
 	.checkbox-c input[type="checkbox"]:checked + label:before,
@@ -64,11 +64,11 @@
 	<fieldset>
 		<label for="">Civilité : </label>
 		<span class="radio-c">
-			<input type="radio" id="monsieur" name="monsieur" required>
+			<input type="radio" id="monsieur" name="civilite" value="monsieur" required>
 			<label for="monsieur">Monsieur</label>
 		</span>
 		<span class="radio-c">
-			<input type="radio" id="madame" name="madame" required>
+			<input type="radio" id="madame" name="civilite" value="madame" required>
 			<label for="madame">Madame</label>
 		</span>
 	</fieldset>
@@ -103,7 +103,7 @@
 	</fieldset>
 
 	<fieldset class="checkbox-c">
-		<input type="checkbox" id="accept" name="accept" required>
+		<input type="checkbox" id="accept" name="accept" value="accept" required>
 		<label class="multiple" for="accept">
 			En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans le cadre de ma demande.
 		</label>
